@@ -38,14 +38,20 @@ public class MyProfiler<K extends Comparable<K>, V> {
      * Insert K, V into both data structures
      * @param key that is going into K
      * @param value that is going into V
-     * @throws IllegalNullKeyException
+     * @throws IllegalNullKeyException 
      * @throws DuplicateKeyException
      */
     public void insert(K key, V value) throws IllegalNullKeyException, DuplicateKeyException {
-        // TODO: complete insert method
+        try {
+    	//TODO: complete insert method
         // Insert K, V into both data structures
     	hashtable.insert(key, value);
     	treemap.put(key, value);
+        }
+        catch (Exception e) {
+            System.out.println("Usage: java MyProfiler <number_of_elements>");
+            System.exit(1);
+        }
     }
     
     /**
@@ -55,10 +61,14 @@ public class MyProfiler<K extends Comparable<K>, V> {
      * @throws IllegalNullKeyException 
      */
     public void retrieve(K key) throws IllegalNullKeyException, KeyNotFoundException {
-    	
+    	try {
     	hashtable.get(key);
     	treemap.get(key);
-    	
+    	}
+        catch (Exception e) {
+            System.out.println("Usage: java MyProfiler <number_of_elements>");
+            System.exit(1);
+        }
         // TODO: complete the retrieve method
         // get value V for key K from data structures
     }
